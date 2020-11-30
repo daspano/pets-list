@@ -1,0 +1,19 @@
+<div *ngIf="status !== undefined">
+  <table>
+    <thead>
+      <tr>
+        <th>Pet Id</th>
+        <th>Pet Name</th>
+        <th>Pet Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pet of pets">
+        <td>{{pet.id}}</td>
+        <td>{{pet.name}}</td>
+        <td>{{pet.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
