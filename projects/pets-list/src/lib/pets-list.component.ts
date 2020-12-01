@@ -4,27 +4,25 @@ import { IPet } from './models/pet.model';
 
 @Component({
   selector: 'lib-pets-list',
-  templateUrl: './pets-list.component.html'
+  templateUrl: './pets-list.component.html',
 })
-export class PetsListComponent implements OnInit, OnChanges{
-
+export class PetsListComponent implements OnInit, OnChanges {
   @Input() status: string;
   public pets: IPet[];
 
-  constructor(
-    private petService: PetsListService
-  ) { }
+  constructor(private petService: PetsListService) {}
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
-  ngOnChanges(): void{
-    this.getPets();
+  ngOnChanges(): void {
+    if (this.status !== undefined){
+      this.getPets();
+    }
   }
 
   getPets(): void{
-    this.petService.getPetsByStatus(this.status).subscribe(
-      res => this.pets = res
-    );
+    this.petService.getPetsByStatus(this.status)
+      .then((data: IPet[]) => (this.pets = data))
+      .catch((error) => console.log(error));
   }
 }
