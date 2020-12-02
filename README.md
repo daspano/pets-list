@@ -1,27 +1,7 @@
-# PetsList
+# npm link
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
+Para realizar un 'npm link' a una SPA, hay que situarse con el intérprete de comandos en la ruta de la carpeta de compilación de la librería (ej: {WorkSpace}/{nombreLibrería}/dist/{nombreLibrería}), a continuación escribir el comando 'npm link'. 
 
-## Development server
+Una vez terminado el proceso, situarse en la ruta de la raíz SPA (ej: {WorkSpace}/{nombreSPA}) y escribir el compando 'npm link {nombreLibrería}'.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Si se produce el error 'Error: inject() must be called from an injection context', editar en la carpeta raíz de la SPA el archivo 'angular.json', añadiéndole "preserveSymlinks": true, en las opciones de 'build'.
